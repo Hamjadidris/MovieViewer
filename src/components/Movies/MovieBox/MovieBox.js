@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const MovieBox = () => {
-  const [currentMovie, setCurrentMovie] = useState();
+  const [currentMovie, setCurrentMovie] = useState([]);
 
   useEffect(() => {
     const getMovie = async () => {
