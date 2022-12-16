@@ -1,0 +1,39 @@
+.moviebox {
+  margin-top: 10vh;
+}
+.moviebox section{
+  margin-left: 4rem;
+  margin-bottom: 5vh;
+}
+.moviebox section h2 {
+  margin-bottom: 2rem;
+}
+.movie-roll-container {
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.movie-roll {
+  display: flex;
+  min-width: fit-content;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.movie-roll-container::-webkit-scrollbar{
+    display: none;
+}
+.movie-roll::-webkit-scrollbar{
+    display: none;
+}
+@media (max-width: 1366px) {
+    .moviebox section{
+        margin-left: 3rem;
+    }
+
+}
+@media (max-width: 768px) {
+    .moviebox section{
+        margin-left: 2rem;
+    }
+}
