@@ -23,14 +23,17 @@ const MovieBox = ({ inputValue }) => {
       return currentMovie.Title.toLowerCase().includes(inputValue.toLowerCase());
     }
   }
-  
+
   return (
     <div className="moviebox">
       {search() ? (
+        <div className="searched">
+          <h2> Search result for '{inputValue}' </h2>
         <MovieInterface
           title={currentMovie.Title}
           image={currentMovie.Poster}
         />
+        </div>
       ) : (
         <>
           <section>

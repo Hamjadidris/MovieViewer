@@ -26,6 +26,12 @@
 .movie-roll::-webkit-scrollbar{
     display: none;
 }
+.searched{
+    margin-left: 2rem;  
+}
+.searched h2{
+    margin-bottom: 2rem;
+}
 @media (max-width: 1025px) {
     .moviebox section{
         margin-left: 3rem;
