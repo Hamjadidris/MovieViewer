@@ -39,3 +39,11 @@
   font-weight: 900;
   font-size: 1.5rem;
 }
+@media (max-width: 1025px) {
+  .movieinterface .image {
+    filter: brightness(60%);
+  }
+  .movieinterface .middle {
+    opacity: 1;
+  }
+}

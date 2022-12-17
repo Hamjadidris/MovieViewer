@@ -4,7 +4,7 @@ import MovieInterface from "../../movieInterface/movieInterface";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const MovieBox = () => {
+const MovieBox = ({ inputValue }) => {
   const [currentMovie, setCurrentMovie] = useState([]);
 
   useEffect(() => {
@@ -15,46 +15,52 @@ const MovieBox = () => {
       const fetchedMovie = res.data;
       setCurrentMovie(fetchedMovie);
     };
-    // async fetchTasks() {
-    //   const res = await fetch(``)
-    //   const data = await res.json()
-    //   return data
-    // }
     getMovie();
   }, []);
 
-  console.log(currentMovie);
+  function search() {
+    if (currentMovie !== {} && inputValue) {
+      return currentMovie.Title.toLowerCase().includes(inputValue.toLowerCase());
+    }
+  }
+  
   return (
     <div className="moviebox">
-      <section >
-        <h2>{currentMovie.Genre}</h2>
-        <div className="movie-roll-container">
-           <div className="movie-roll">
-          {Array(5).fill(
-            <MovieInterface
-              title={currentMovie.Title}
-              image={currentMovie.Poster}
-            />
-          )}
-        </div>
-        </div>
-       
-      </section>
-
-      <section >
-        <h2>{currentMovie.Genre}</h2>
-        <div className="movie-roll-container">
-            <div className="movie-roll">
-          {Array(5).fill(
-            <MovieInterface
-              title={currentMovie.Title}
-              image={currentMovie.Poster}
-            />
-          )}
-        </div>
-        </div>
-      
-      </section>
+      {search() ? (
+        <MovieInterface
+          title={currentMovie.Title}
+          image={currentMovie.Poster}
+        />
+      ) : (
+        <>
+          <section>
+            <h2>{currentMovie.Genre}</h2>
+            <div className="movie-roll-container">
+              <div className="movie-roll">
+                {Array(5).fill(
+                  <MovieInterface
+                    title={currentMovie.Title}
+                    image={currentMovie.Poster}
+                  />
+                )}
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>{currentMovie.Genre}</h2>
+            <div className="movie-roll-container">
+              <div className="movie-roll">
+                {Array(5).fill(
+                  <MovieInterface
+                    title={currentMovie.Title}
+                    image={currentMovie.Poster}
+                  />
+                )}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 };
